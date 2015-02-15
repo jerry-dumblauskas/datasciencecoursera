@@ -31,7 +31,7 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
             next
         }
         
-        # perform a mean on the final data set
+        # rbind the data set (build it up)
         my_merged_data <-rbind(my_merged_data, ds)
     }
     
