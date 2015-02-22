@@ -1,5 +1,5 @@
 # Test your code
-source("~/ProgrammingAssignment2/cachematrix.R")
+# let's just run off stuff in memory!
 #
 # generate matrix, and the inverse of the matrix.
 size <- 1000 # size of the matrix edge, don't make this too big
