@@ -1,6 +1,8 @@
 .RData
 .Rhistory
 *.csv
+*.xml
+*.xlsx
 specdata/
 rprog-data-ProgAssignment3-data/
 
