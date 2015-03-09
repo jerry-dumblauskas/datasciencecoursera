@@ -1,12 +1,6 @@
-rankall <- function(outcome, num = "best") {
+rankall_red <- function(outcome, num = "best") {
     ## Read outcome data
     dt <-read.csv("~/r_work/rprog-data-ProgAssignment3-data/outcome-of-care-measures.csv", colClasses = "character")
-    # coerce num
-    if (num == "best") {
-        numx<-c(1)
-    }else {
-        numx<-num
-    }
 
     outcomes<-c("heart attack", "heart failure", "pneumonia")
     idx<-c(11,17,23)
@@ -31,6 +25,10 @@ rankall <- function(outcome, num = "best") {
         # return it
         if (num == "worst") {
             numx<-nrow(d_final_x)
+        } else if (num == "best") {
+            numx<-c(1)
+        } else {
+            numx<-num
         }
         nr<-c(d_final_x[[1]][numx], l_st)
         rtn[x,]<-nr

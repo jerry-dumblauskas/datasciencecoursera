@@ -34,9 +34,7 @@ rankall <- function(outcome, num = "best") {
         if (num == "worst") {
             numx<-nrow(d_final_x)
         }
-        if (l_st=='WI') {
-            print (l_st)
-        }
+
         nr<-c(d_final_x[[1]][numx], l_st)
         rtn[x,]<-nr
         x<-x+1
