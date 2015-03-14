@@ -11,11 +11,10 @@ rankall_red <- function(outcome, num = "best") {
     for (l_st in state.abbr[order(state.abbr)] ) {
         d_final<-subset(dt,dt[7]==l_st & dt[ind] != 'Not Available', select=c(2,ind))
         d_final[[2]]<-as.numeric(d_final[[2]])
-        d_final_x <- d_final[order(d_final[2], d_final[1]) , ]
         numx<-num
-        numx<-ifelse(num == "worst",nrow(d_final_x), numx)
+        numx<-ifelse(num == "worst",nrow(d_final), numx)
         numx<-ifelse(num == "best",c(1), numx)
-        nr<-c(d_final_x[[1]][numx], l_st)
+        nr<-c(d_final[order(d_final[2], d_final[1]) , ][[1]][numx], l_st)
         rtn[x,]<-nr
         x<-x+1
     }
