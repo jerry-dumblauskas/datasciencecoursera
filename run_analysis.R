@@ -77,6 +77,8 @@ transform_col_names <- function (in_names)
         l_row <- gsub('-', ' ', l_row)
         l_row <- gsub('\\(\\)', '', l_row)
         l_row <- gsub('  ', ' ', l_row)
+        l_row <- gsub(' ', '', l_row)
+        l_row <- tolower(l_row)
         
         in_mtx[x,] <- l_row
         x<-x+1
