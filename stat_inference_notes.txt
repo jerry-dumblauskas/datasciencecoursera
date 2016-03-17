@@ -1,0 +1,21 @@
+Quantile = F(xa) = Alpha
+Percentile = Quantile with alpha expressed as a percent
+Median = 50th Percentile
+
+PMF = discrete  Probability mass function
+PDF = continuous Probability density function
+
+Estimand vs estimator
+
+conditional prob = bayes
+
+sensitivity
+specificity (nen if neg)
+
+positive predictive value
+
+estimtor estimates an estimand
+
+
+
+x^2/4=.5
