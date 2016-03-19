@@ -9,12 +9,16 @@ Estimand vs estimator
 
 conditional prob = bayes
 
-sensitivity
+sensitivity (positive if positive)
 specificity (nen if neg)
+? how can I remember the above???
+
 
 positive predictive value
 
 estimtor estimates an estimand
+
+
 
 
 
