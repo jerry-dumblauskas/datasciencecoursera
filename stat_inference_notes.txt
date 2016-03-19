@@ -2,21 +2,22 @@ Quantile = F(xa) = Alpha
 Percentile = Quantile with alpha expressed as a percent
 Median = 50th Percentile
 
-PMF = discrete  Probability mass function
-PDF = continuous Probability density function
+PMF = discrete  Probability mass function (example die rolling)
+PDF = continuous Probability density function (example blood pressue)
 
 Estimand vs estimator
 
 conditional prob = bayes
 
 sensitivity (positive if positive)
-specificity (nen if neg)
+specificity (neg if neg)
 ? how can I remember the above???
+well, being sensitive is postive....specific is annoying and the opposite :)
 
 
 positive predictive value
 
-estimtor estimates an estimand
+estimator estimates an estimand
 
 
 
