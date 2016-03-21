@@ -11,8 +11,8 @@ conditional prob = bayes
 
 sensitivity (positive if positive)
 specificity (neg if neg)
-? how can I remember the above???
-well, being sensitive is postive....specific is annoying and the opposite :)
+
+well, being sensitive is positive....specific is annoying and the opposite :)
 
 
 positive predictive value
