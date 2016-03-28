@@ -19,8 +19,26 @@ positive predictive value
 
 estimator estimates an estimand
 
-
-
-
-
 x^2/4=.5
+
+variance and its square root, the standard deviation
+
+E(X^2)-E(X)^2
+sum(dice_sqr*dice_high)-edh^2
+
+mu=mean
+sigma=standard deviation
+
+E(X') = mu, where X' represents a sample mean and mu is the population mean.
+
+The standard deviation of a statistic is called its standard error
+
+qnorm for quantile norm
+
+Suppose you have a normal distribution with mean 1020 and standard 
+deviation of 50 and you want to compute the probability that the
+associated random variable X > 1200. The easiest way to do this is to 
+use R's pnorm function in which you specify the quantile (1200), 
+the mean (1020) and standard deviation (50). You also must specify 
+that the lower.tail is FALSE since we're asking for a probability 
+that the random variable is greater than our quantile. 
