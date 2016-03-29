@@ -1,3 +1,5 @@
+independent and identically distributed (iid)
+
 Quantile = F(xa) = Alpha
 Percentile = Quantile with alpha expressed as a percent
 Median = 50th Percentile
@@ -28,6 +30,8 @@ sum(dice_sqr*dice_high)-edh^2
 
 mu=mean
 sigma=standard deviation
+standard deviation sigma/sqrt(n)
+sigma^2=variance
 
 E(X') = mu, where X' represents a sample mean and mu is the population mean.
 
@@ -42,3 +46,5 @@ use R's pnorm function in which you specify the quantile (1200),
 the mean (1020) and standard deviation (50). You also must specify 
 that the lower.tail is FALSE since we're asking for a probability 
 that the random variable is greater than our quantile. 
+
+ ppois(3,2.5 * 4) !=  ppois(3,10) 
