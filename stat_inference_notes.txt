@@ -48,3 +48,14 @@ that the lower.tail is FALSE since we're asking for a probability
 that the random variable is greater than our quantile. 
 
  ppois(3,2.5 * 4) !=  ppois(3,10) 
+
+
+ T dist
+
+ est +- tq + std err
+
+ t=(X'-mu)/(s/sqrt(n)) (has n-1 degrees of freedom)
+
+
+
+ REJECTS a TRUE null hypothesis H_0 and a Type II error ACCEPTS a FALSE null hypothesis
