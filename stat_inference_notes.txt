@@ -16,7 +16,6 @@ specificity (neg if neg)
 
 well, being sensitive is positive....specific is annoying and the opposite :)
 
-
 positive predictive value
 
 estimator estimates an estimand
@@ -47,15 +46,25 @@ the mean (1020) and standard deviation (50). You also must specify
 that the lower.tail is FALSE since we're asking for a probability 
 that the random variable is greater than our quantile. 
 
- ppois(3,2.5 * 4) !=  ppois(3,10) 
+ppois(3,2.5 * 4) !=  ppois(3,10) 
 
 
- T dist
+T dist
 
- est +- tq + std err
+est +- tq + std err
 
- t=(X'-mu)/(s/sqrt(n)) (has n-1 degrees of freedom)
+t=(X'-mu)/(s/sqrt(n)) (has n-1 degrees of freedom)
+this is
+X' sample mean
+mu = hypothised value (mean)
+s = standard dev
+n = number of observations
 
+ Type I error REJECTS a TRUE null hypothesis H_0 and a 
+ Type II error ACCEPTS a FALSE null hypothesis
 
+ standard error=std dev/sqrt(number)
 
- REJECTS a TRUE null hypothesis H_0 and a Type II error ACCEPTS a FALSE null hypothesis
+ The general rule for rejection is if sqrt(n) * ( X' - mu) / s > Z_{1-alpha}.
+
+ Power = 1 - B  (B = type 2 error)
