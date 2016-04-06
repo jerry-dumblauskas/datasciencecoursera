@@ -68,3 +68,10 @@ n = number of observations
  The general rule for rejection is if sqrt(n) * ( X' - mu) / s > Z_{1-alpha}.
 
  Power = 1 - B  (B = type 2 error)
+
+So we know that the quantities mu_0 and alpha are specified 
+by the test designer. In the statement 
+1 - beta = Prob( X' > mu_0 +z_(1-alpha) * sigma/sqrt(n)) 
+given mu_a > mu_0, mu_0 and alpha are specified, 
+and X' depends on the data. The other four quantities,
+(beta, sigma, n, and mu_a), are all unknown.
