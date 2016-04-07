@@ -75,3 +75,9 @@ by the test designer. In the statement
 given mu_a > mu_0, mu_0 and alpha are specified, 
 and X' depends on the data. The other four quantities,
 (beta, sigma, n, and mu_a), are all unknown.
+
+
+The p-value is "the probability under the null hypothesis 
+of obtaining evidence as or more extreme than your test 
+statistic (obtained from| your observed data) in the 
+direction of the alternative hypothesis."
