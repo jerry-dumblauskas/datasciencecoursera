@@ -3,20 +3,86 @@ title: "Statistical Inference Course Project"
 author: "Jerry Dumblauskas"
 date: "April 10, 2016"
 output: html_document
+keep_md: true
 ---
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+This is an investigation the exponential distribution in R compared to the Central Limit Theorem. The exponential distribution was simulated in R with rexp(n, lambda) where lambda is the rate parameter. The mean of exponential distribution was set to 1/lambda and the standard deviation was also 1/lambda. lambda = 0.2 for all of the simulations. I investigated the distribution of averages of 40 exponentials. Note, a thousand simulations were done.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+I'll show 3 things:
+
+  1. Sample mean compared to theoretical mean
+  2. Variance of sample compared to theoretical variance
+  3. Investigate the distribution
+
+# Sample Mean v Theoretical Mean
 
 ```{r}
-summary(cars)
+set.seed(666773)
+sims = 1000; 
+n = 40; 
+lambda = 0.2
+means <- vector("numeric")
+means_sum <- vector("numeric")
+means_cum <- vector("numeric")
+
+for (i in 1:sims) { means[i] <- mean(rexp(n, lambda))}
+means_sum[1] <- means[1]
+for (i in 2:sims) { means_sum[i] <- means_sum[i-1] + means[i] }
+for (i in 1:sims) { means_cum[i] <- means_sum[i]/i }
+
+##The sample means converged to:
+print( means_cum[sims])
 ```
 
-You can also embed plots, for example:
+As the number increases the sample value moves to the theoretical value
 
-```{r, echo=FALSE}
-plot(cars)
+The theoretical value is:
+```{r}
+print (1/lambda)
+```
+Plotting looks like:
+```{r}
+library(ggplot2)
+g <- ggplot(data.frame(x = 1:sims, y = means_cum), aes(x = x, y = y))
+g <- g + geom_hline(yintercept = 0) + geom_line(size = 2)
+g <- g + geom_abline(intercept = 1 / lambda, slope = 0, color = "green", size = 1)
+g <- g + scale_y_continuous(breaks=c(4.50, 4.75, 5.00, 5.25, 5.50, 5.75), limits=c(4.25, 6))
+g <- g + theme(plot.title = element_text(size=12, face="bold", vjust=2, hjust=0.5))
+g <- g + labs(title="Sample Mean vs Theoretical Population Mean")
+g <- g + labs(x = "Number of Simulations", y = "Sample Mean")
+print(g) 
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+# Sample Variance vs Theoretical Population Variance
+We now turn our attention to the variance. We will compare the variance present in the sample means of the 1000 simulations to the theoretical varience of the population.
+
+The variance of the sample means estimates the variance of the population by using the varience of the 1000 entries in the means vector times the sample size, 40. (i.e sig=var(sm)*N)
+
+Sample Variance
+```{r}
+print (var(means)*n)
+
+```
+
+Theoretical Variance
+```{r}
+print ((1/lambda)^2)
+```
+
+# Distribution
+The sample means are distributed normally around the population mean of 5. This can be easily seen by overlaying a normal curve on the histogram of the sample means.
+```{r}
+library(ggplot2)
+g <- ggplot(data.frame(x = means), aes(x = x))
+g <- g + geom_histogram(position="identity", fill="blue", color="black", alpha=0.2, 
+                        binwidth=0.5, aes(y= ..density..))
+g <- g + stat_function(fun = dnorm, colour = "red", args=list(mean=5))
+g <- g + scale_x_continuous(breaks=c(1, 2, 3, 4, 5, 6, 7, 8, 9), limits=c(1, 9))
+g <- g + scale_y_continuous(breaks=c()) 
+g <- g + theme(plot.title = element_text(size=12, face="bold", vjust=2, hjust=0.5))
+g <- g + labs(title="Sample Distribution vs Normal Distribution")
+g <- g + labs(x = "Sample Mean", y = "Frequency")
+print(g) 
+```{r}
+
+# Conclusion
