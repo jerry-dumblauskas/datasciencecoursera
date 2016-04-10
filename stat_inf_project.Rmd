@@ -1,8 +1,8 @@
 ---
-title: "Statistical Inference Course Project"
+title: "Statistical Inference Course Project -- Simulation"
 author: "Jerry Dumblauskas"
 date: "April 10, 2016"
-output: html_document
+output: pdf_document
 keep_md: true
 ---
 
