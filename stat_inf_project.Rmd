@@ -43,14 +43,13 @@ print (1/lambda)
 Plotting looks like:
 ```{r}
 library(ggplot2)
-g <- ggplot(data.frame(x = 1:sims, y = means_cum), aes(x = x, y = y))
-g <- g + geom_hline(yintercept = 0) + geom_line(size = 2)
-g <- g + geom_abline(intercept = 1 / lambda, slope = 0, color = "green", size = 1)
-g <- g + scale_y_continuous(breaks=c(4.50, 4.75, 5.00, 5.25, 5.50, 5.75), limits=c(4.25, 6))
-g <- g + theme(plot.title = element_text(size=12, face="bold", vjust=2, hjust=0.5))
-g <- g + labs(title="Sample Mean vs Theoretical Population Mean")
-g <- g + labs(x = "Number of Simulations", y = "Sample Mean")
-print(g) 
+plt <- ggplot(data.frame(x = 1:sims, y = means_cum), aes(x = x, y = y))
+plt <- plt + geom_hline(yintercept = 0) + geom_line(size = 2)
+plt <- plt + geom_abline(intercept = 1 / lambda, slope = 0, color = "green", size = 1)
+plt <- plt + theme(plot.title = element_text(size=12, face="bold", vjust=2, hjust=0.5))
+plt <- plt + labs(title="Sample Mean vs Theoretical Population Mean")
+plt <- plt + labs(x = "Number of Simulations", y = "Sample Mean")
+print(plt) 
 ```
 
 # Sample Variance vs Theoretical Population Variance
@@ -73,16 +72,17 @@ print ((1/lambda)^2)
 The sample means are distributed normally around the population mean of 5. This can be easily seen by overlaying a normal curve on the histogram of the sample means.
 ```{r}
 library(ggplot2)
-g <- ggplot(data.frame(x = means), aes(x = x))
-g <- g + geom_histogram(position="identity", fill="blue", color="black", alpha=0.2, 
+plt <- ggplot(data.frame(x = means), aes(x = x))
+plt <- plt + geom_histogram(position="identity", fill="blue", color="black", alpha=0.2, 
                         binwidth=0.5, aes(y= ..density..))
-g <- g + stat_function(fun = dnorm, colour = "red", args=list(mean=5))
-g <- g + scale_x_continuous(breaks=c(1, 2, 3, 4, 5, 6, 7, 8, 9), limits=c(1, 9))
-g <- g + scale_y_continuous(breaks=c()) 
-g <- g + theme(plot.title = element_text(size=12, face="bold", vjust=2, hjust=0.5))
-g <- g + labs(title="Sample Distribution vs Normal Distribution")
-g <- g + labs(x = "Sample Mean", y = "Frequency")
-print(g) 
-```{r}
+plt <- plt + stat_function(fun = dnorm, colour = "red", args=list(mean=5))
+plt <- plt + scale_x_continuous(breaks=c(1, 2, 3, 4, 5, 6, 7, 8, 9))
+plt <- plt + scale_y_continuous(breaks=c()) 
+plt <- plt + theme(plot.title = element_text(size=12, face="bold", vjust=2, hjust=0.5))
+plt <- plt + labs(title="Sample Distribution vs Normal Distribution")
+plt <- plt + labs(x = "Sample Mean", y = "Frequency")
+print(plt) 
+```
 
 # Conclusion
+The sample mean closely matches the theoretical mean. The sample variance of the mean also tracks quite closely to the theoretical variance.  The more samples we get the closer the density distribution be to the normal distribution bell curve.
