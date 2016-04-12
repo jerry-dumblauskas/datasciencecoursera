@@ -1,0 +1,21 @@
+Machine Learning Basics
+(from Python Machine Learning by Sebastian Raschka)
+
+3 types
+Supervised		I know what to do, do it
+Unsupervised	Not sure, do something, if OK we'll do it
+Reinforcement	Not sure, do something, will set up rewards
+				and punishments
+
+
+Classification Regression Clustering
+
+Supervised == Classification and Regression
+Unsupervised == Clustering
+Reinforcement == all of 'em'
+
+NumPy 1.9.1
+SciPy 0.14.0
+scikit-learn 0.15.2
+matplotlib 1.4.0
+pandas 0.15.2
