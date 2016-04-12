@@ -1,15 +1,16 @@
 ---
-title: "stat_inf_project_2"
+title: "Statistical Inference Course Project -- Data Analysis"
 author: "Jerry Dumblauskas"
 date: "April 10, 2016"
-output: html_document
+output: pdf_document
 ---
 
-Load the ToothGrowth data and perform some basic exploratory data analyses
+Load the ToothGrowth data (part of the datasets in R) and perform some basic exploratory data analyses and come up with some results.
 ```{r}
+# source the data
 data(ToothGrowth)
 ```
-Provide a basic summary of the data.
+#Provide a basic summary of the data.
 ```{r}
 
 str(ToothGrowth)
@@ -20,13 +21,15 @@ unique(ToothGrowth$dose)
 boxplot(len~supp*dose, data=ToothGrowth, xlab="Vitamin C Dose", col=(c("gold","darkgreen")))
 ```
 
+#Perform some analysis
+
 looking at the data (per dose) it is close, so let's say "different supp types have no effect on length" (H0)
 ```{r}
 t.test(len ~ supp, data = ToothGrowth)
 
 ```
 
-Here, the p is 6 percent (kind of low >23 percent chance of messing up), but the confidence interval contains 0, so we cannot make a clear acception or rejection of H0
+Here, the p is 6 percent (kind of low, this is a >23 percent chance of messing up), but the confidence interval contains 0, so we cannot make a clear acception or rejection of H0
 
 Dose has an impact on tooth growth (.5 v 2)
 ```{r}
@@ -37,4 +40,4 @@ t.test(d_05, d_20, paired=FALSE, var.equal=FALSE)
 low p, test contains 0 -- so this H0 is accepted!
 
 #Conclusions
-the higher the dose, the more growth.  The basic test showed no statistically different data between the supp types.  In future analysis, if the dose type is restricted (like getting rid of low dose), it may be possible to infer differences in the supplement types.
+The higher the dose, the more growth.  The basic test showed no statistically different data between the supp types.  In future analysis, if the dose type is restricted (like getting rid of low dose), it may be possible to infer differences in the supplement types.
