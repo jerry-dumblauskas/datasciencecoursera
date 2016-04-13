@@ -22,16 +22,13 @@ sims = 1000;
 n = 40; 
 lambda = 0.2
 means <- vector("numeric")
-means_sum <- vector("numeric")
-means_cum <- vector("numeric")
+means_cumulative <- vector("numeric")
 
 for (i in 1:sims) { means[i] <- mean(rexp(n, lambda))}
-means_sum[1] <- means[1]
-for (i in 2:sims) { means_sum[i] <- means_sum[i-1] + means[i] }
-for (i in 1:sims) { means_cum[i] <- means_sum[i]/i }
+for (i in 1:sims) { means_cumulative[i] <- sum(means[0:i])/i }
 
 ##The sample means converged to:
-print( means_cum[sims])
+print( means_cumulative[sims])
 ```
 
 As the number increases the sample value moves to the theoretical value
@@ -43,7 +40,7 @@ print (1/lambda)
 Plotting looks like:
 ```{r}
 library(ggplot2)
-plt <- ggplot(data.frame(x = 1:sims, y = means_cum), aes(x = x, y = y))
+plt <- ggplot(data.frame(x = 1:sims, y = means_cumulative), aes(x = x, y = y))
 plt <- plt + geom_hline(yintercept = 0) + geom_line(size = 2)
 plt <- plt + geom_abline(intercept = 1 / lambda, slope = 0, color = "green", size = 1)
 plt <- plt + theme(plot.title = element_text(size=12, face="bold", vjust=2, hjust=0.5))

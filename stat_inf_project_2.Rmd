@@ -18,7 +18,7 @@ summary(ToothGrowth)
 head(ToothGrowth)
 unique(ToothGrowth$supp)
 unique(ToothGrowth$dose)
-boxplot(len~supp*dose, data=ToothGrowth, xlab="Vitamin C Dose", col=(c("gold","darkgreen")))
+boxplot(len~supp*dose, data=ToothGrowth, xlab="Dose and Supplement", col=(c("gold","darkgreen")))
 ```
 
 #Perform some analysis
